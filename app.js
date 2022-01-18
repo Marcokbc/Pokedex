@@ -5,10 +5,10 @@ const generatePokemonPromises = () => Array(890).fill().map((_, index) =>
 
 const generateHTML = pokemons => pokemons.reduce((accumulator, { name, id, types }) => {
     const elementTypes = types.map(typeInfo => typeInfo.type.name)
-    console.log(pokemons);
+    // console.log(pokemons);
     accumulator += `
-                    <li class="card ${elementTypes[0]}">
-                    <img class="card-image" alt="${name}" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png">
+                    <li id="${id}" class="card ${elementTypes[0]}">
+                    <img id="${id}" class="card-image" alt="${name}" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png">
                         <h2 class="card-title">${id}. ${name}</h2>
                         <p class="card-subtitle">${elementTypes.join(' | ')}</p>
                     </li>`
@@ -23,5 +23,6 @@ const insertPokemonsIntoPage = pokemons => {
 
     const pokemonPromises = generatePokemonPromises();
 
-    Promise.all(pokemonPromises).then(generateHTML)
+Promise.all(pokemonPromises).then(generateHTML)
     .then(insertPokemonsIntoPage)
+

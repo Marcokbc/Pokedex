@@ -1,0 +1,10 @@
+o codigo js é execultado em uma unica tread, ou seja so faz uma coisa de cada vez]
+
+o codigo sincrono espera uma ação ser finalizada antes de partir para a proxima ação
+
+o codigo assincrono pode inciar um processo agfr e so terminalo dps
+
+requests são assincronos, e são em outra thread
+
+exemplificação: sincrono -> sincrono -> encontrou uma request ou qualquer outra coisa assincrona, passa para outra 
+thread mas o resto contiunua sendo exeutado  
