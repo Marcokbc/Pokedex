@@ -26,3 +26,13 @@ const insertPokemonsIntoPage = pokemons => {
 Promise.all(pokemonPromises).then(generateHTML)
     .then(insertPokemonsIntoPage)
 
+document.addEventListener("click", (e) =>{
+    const target = e.target.className;
+    const classSplit = target.split(" ");
+    // console.log(classSplit);
+    const id = e.target.id;
+
+    if(classSplit[0] == "card" || classSplit[0] == "card-image"){
+        window.location.href = `file:///C:/Users/User/Desktop/Marco/teste/Alura/Pokedex/pokeList.html?${id}`;
+    }
+}); 

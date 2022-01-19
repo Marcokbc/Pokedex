@@ -110,6 +110,11 @@ h1 {
 	animation: bounce 0.5s linear;
 }
 
+a{
+    text-decoration: none;
+    color: white;
+}
+
 .card-title {
 	text-transform: capitalize;
 	margin-bottom: 0px;
