@@ -1,6 +1,6 @@
-const getPokemonUrl = id => `https://pokeapi.co/api/v2/pokemon/${id}`
+const getPokemonUrl = id => `https://pokeapi.co/api/v2/pokemon/${id}`;
 
-const generatePokemonPromises = () => Array(890).fill().map((_, index) =>
+const generatePokemonPromises = () => Array(898).fill().map((_, index) =>
     fetch(getPokemonUrl(index + 1)).then(response => response.json()))
 
 const generateHTML = pokemons => pokemons.reduce((accumulator, { name, id, types }) => {
@@ -21,6 +21,12 @@ const insertPokemonsIntoPage = pokemons => {
     ul.innerHTML = pokemons
 }
 
+window.onload = () => {
+    var cLoader = document.getElementById("esconder");
+
+    cLoader.style.display = 'none';
+}
+
     const pokemonPromises = generatePokemonPromises();
 
 Promise.all(pokemonPromises).then(generateHTML)
@@ -33,6 +39,6 @@ document.addEventListener("click", (e) =>{
     const id = e.target.id;
 
     if(classSplit[0] == "card" || classSplit[0] == "card-image"){
-        window.location.href = `file:///C:/Users/User/Desktop/Marco/teste/Alura/Pokedex/pokeList.html?${id}`;
+        window.location.href = `file:///C:/Users/User/Desktop/Marco/teste/Alura/Pokedex/public/pokemon/pokeList.html?${id}`;
     }
 }); 

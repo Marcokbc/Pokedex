@@ -52,6 +52,12 @@ const fetchPokemon = () => {
         })
 }
 
+window.onload = () => {
+    var cLoader = document.getElementById("esconder");
+
+    cLoader.style.display = 'none';
+}
+
 fetchPokemon();
 
 

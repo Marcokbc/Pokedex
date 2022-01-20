@@ -153,3 +153,21 @@ a{
 			transform: translateY(0);
 	}
 }
+
+.c-loader{
+	animation: is-rotating 1s infinite;
+	border: 6px solid #e5e5e5;
+	border-top-color: #51d4db;
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+	margin-left: auto;
+    margin-right: auto;
+	display: block;
+}
+
+@keyframes is-rotating{
+	to{
+		transform: rotate(1turn);
+	}
+}
