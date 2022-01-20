@@ -107,7 +107,7 @@ h1 {
 .rotate{
     width: 300px;
     transition: 0.3s;
-    transform: rotateY(46deg);
+    transform: rotateY(60deg);
     color: #505050;
     padding-right: 0;
     margin-right: 0;
@@ -127,7 +127,7 @@ h1 {
 .stats{
     width: 300px;
     transition: 0.3s;
-    transform: rotateY(-40deg);
+    transform: rotateY(-60deg);
     color: #505050;
     padding-right: 0;
     margin-right: 0;
