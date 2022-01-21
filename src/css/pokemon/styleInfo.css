@@ -16,7 +16,7 @@ a{
     color: white;
 }
 
-h1 {
+h1, h4 {
 	text-align: center;
 	font-size: 54px;
 }
@@ -144,4 +144,25 @@ h1 {
 }
 .flex-container {
     display: flex;
-  }
+}
+
+#evolucoes{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+}
+
+.evoli{
+    list-style-type: none;
+    margin: 5px;
+    padding: 10px;
+    
+}
+
+.evo-img{
+    border-radius: 50%;
+    background-color: white;
+}
+
+
