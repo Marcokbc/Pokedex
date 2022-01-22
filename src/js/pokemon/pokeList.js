@@ -23,20 +23,49 @@ const fetchPokemon = () => {
 
             Promise.all(evolutionPromise)
                 .then(evolve => {
+                    console.log(evolve);
                             let primPoke = evolve[0]['chain']['species']['url'].split('/');
                             primPoke = primPoke[6];
 
-                            let segPoke = evolve[0]['chain']['evolves_to'][0]['species']['url'].split('/');
-                            segPoke = segPoke[6];
-                            
-                            let tercPoke = evolve[0]['chain']['evolves_to'][0]['evolves_to'][0]['species']['url'].split('/');
-                            tercPoke = tercPoke[6];
+                            let segPoke = null;
 
-                            const accumulator = `
+                            try{
+                                segPoke = evolve[0]['chain']['evolves_to'][0]['species']['url'].split('/');
+                                segPoke = segPoke[6];
+                            }catch(e){
+                                segPoke = null;
+                            }
+                            
+                            let tercPoke = null;
+                            try{
+                                tercPoke = evolve[0]['chain']['evolves_to'][0]['evolves_to'][0]['species']['url'].split('/');
+                                tercPoke = tercPoke[6];
+                            }catch (e){
+                                tercPoke = null;
+                            }
+
+                            if(tercPoke){
+                                accumulator = `
                                 <li class="evoli"><img class="evo-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${primPoke}.png"></li>
                                 <li class="evoli"><img class="evo-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${segPoke}.png"></li>
                                 <li class="evoli"><img class="evo-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${tercPoke}.png"></li>
                             `;
+                            }else if(segPoke){
+                                accumulator = `
+                                <li class="evoli"><img class="evo-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${primPoke}.png"></li>
+                                <li class="evoli"><img class="evo-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${segPoke}.png"></li>
+                            `;
+                            }else{ 
+                                accumulator = `
+                                <li class="evoli"><img class="evo-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${primPoke}.png"></li>
+                            `;
+                            }                           
+                            
+                            
+                            
+                                
+                                console.log(accumulator);
+
                     const elEvolucoes = document.getElementById('evolucoes');
                     console.log(elEvolucoes);
 

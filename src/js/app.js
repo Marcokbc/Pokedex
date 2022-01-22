@@ -39,6 +39,6 @@ document.addEventListener("click", (e) =>{
     const id = e.target.id;
 
     if(classSplit[0] == "card" || classSplit[0] == "card-image"){
-        window.location.href = `file:///C:/Users/User/Desktop/Marco/teste/Alura/Pokedex/public/pokemon/pokeList.html?${id}`;
+        window.location.href = `file:///C:/Users/MAMar/Desktop/pokemon/Pokedex/public/pokemon/pokeList.html?${id}`;
     }
 }); 
